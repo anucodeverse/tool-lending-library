@@ -85,7 +85,7 @@ tool-lending-library
 ### Clone Repository
 
 ```bash
-git clone <repository-url>
+git clone <https://github.com/anucodeverse/tool-lending-library>
 Frontend Setup
 cd client
 npm install
