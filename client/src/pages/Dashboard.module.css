@@ -1,0 +1,847 @@
+/* =====================================================
+   DASHBOARD LAYOUT
+===================================================== */
+
+.dashboard {
+  min-height: 100vh;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 96px 32px 40px;
+  background: #f4f6f8;
+  color: #111827;
+  animation: fadeIn .45s ease;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 36px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.welcome {
+  margin-top: 8px;
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* =====================================================
+   REFRESH BUTTON
+===================================================== */
+
+.refreshBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-width: 160px;
+  height: 46px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #111827;
+  color: #ffffff;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.refreshBtn:hover:not(:disabled) {
+  background: #1f2937;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.18);
+}
+
+.refreshBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.refreshBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.refreshBtn:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+
+/* =====================================================
+   SUMMARY CARDS
+===================================================== */
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  min-height: 165px;
+  height: 100%;
+  padding: 28px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    border-color .3s ease;
+}
+
+.card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 6px;
+  height: 100%;
+
+  background: #111827;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+
+  border-color: #d1d5db;
+
+  box-shadow:
+    0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.cardTitle {
+  margin: 0 0 14px;
+
+  color: #6b7280;
+
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.cardValue {
+  margin: 0;
+
+  font-size: 2.5rem;
+  font-weight: 700;
+
+  color: #111827;
+
+  line-height: 1;
+}
+
+.card h2,
+.card h3 {
+  margin: 0 0 14px;
+  color: #111827;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.card p {
+  margin-top: 12px;
+
+  color: #64748b;
+
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.card:hover .cardValue {
+  color: #2563eb;
+}
+/* =====================================================
+   ANALYTICS SECTION
+===================================================== */
+
+.analytics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.analyticsCard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  padding: 28px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    border-color .3s ease;
+}
+
+.analyticsCard:hover {
+  transform: translateY(-4px);
+
+  border-color: #d1d5db;
+
+  box-shadow:
+    0 18px 38px rgba(15,23,42,.08);
+}
+
+.analyticsCard h3 {
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 1.15rem;
+  font-weight: 700;
+
+  letter-spacing: -.2px;
+}
+
+/* =====================================================
+   INVENTORY HEALTH
+===================================================== */
+
+.progressNative {
+  width: 100%;
+  height: 14px;
+
+  appearance: none;
+  overflow: hidden;
+
+  border: none;
+  border-radius: 999px;
+
+  background: #e5e7eb;
+}
+
+.progressNative::-webkit-progress-bar {
+  background: #e5e7eb;
+  border-radius: 999px;
+}
+
+.progressNative::-webkit-progress-value {
+  background: linear-gradient(
+      90deg,
+      #111827,
+      #374151
+  );
+
+  border-radius: 999px;
+
+  transition: width .5s ease;
+}
+
+.progressNative::-moz-progress-bar {
+  background: linear-gradient(
+      90deg,
+      #111827,
+      #374151
+  );
+
+  border-radius: 999px;
+}
+
+.analyticsCard strong {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* =====================================================
+   STATUS ROW
+===================================================== */
+
+.statusRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+/* =====================================================
+   STATUS BADGES
+===================================================== */
+
+.available,
+.borrowed,
+.lowStock {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px 16px;
+
+  border-radius: 999px;
+
+  font-size: .88rem;
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.available {
+  color: #166534;
+  background: #dcfce7;
+  border: 1px solid #bbf7d0;
+}
+
+.borrowed {
+  color: #991b1b;
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+}
+
+.lowStock {
+  color: #92400e;
+  background: #fef3c7;
+  border: 1px solid #fde68a;
+}
+
+.available:hover,
+.borrowed:hover,
+.lowStock:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(15,23,42,.08);
+}
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+
+.visuallyHidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  padding: 0;
+  margin: -1px;
+
+  overflow: hidden;
+
+  clip: rect(0,0,0,0);
+
+  white-space: nowrap;
+
+  border: 0;
+}
+
+button:focus-visible,
+a:focus-visible,
+progress:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+/* =====================================================
+   QUICK ACTIONS
+===================================================== */
+
+.quick {
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+
+  padding: 28px;
+
+  margin-bottom: 40px;
+
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.quick h2 {
+  margin: 0 0 20px;
+
+  color: #111827;
+
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.quickButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.quick button {
+  min-width: 190px;
+  height: 48px;
+
+  padding: 0 24px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #111827;
+  color: #ffffff;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background .25s ease,
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.quick button:hover:not(:disabled) {
+  background: #1f2937;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 10px 24px rgba(17, 24, 39, .18);
+}
+
+.quick button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.quick button:disabled {
+  opacity: .65;
+  cursor: not-allowed;
+}
+
+/* =====================================================
+   RECENT TOOLS TABLE
+===================================================== */
+
+.tableContainer {
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+
+  padding: 28px;
+
+  overflow-x: auto;
+
+  box-shadow: 0 10px 30px rgba(15, 23, 42, .05);
+}
+
+.tableContainer h2 {
+  margin: 0 0 22px;
+
+  color: #111827;
+
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  min-width: 700px;
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+
+  background: #111827;
+  color: #ffffff;
+
+  padding: 16px 18px;
+
+  text-align: left;
+
+  font-size: .9rem;
+  font-weight: 600;
+
+  letter-spacing: .03em;
+
+  z-index: 2;
+}
+
+.table tbody td {
+  padding: 18px;
+
+  color: #374151;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  font-size: .95rem;
+
+  transition:
+    background .25s ease,
+    color .25s ease;
+}
+
+.table tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.table tbody tr:hover {
+  background: #f3f4f6;
+}
+
+.table tbody tr:hover td {
+  color: #111827;
+}
+
+/* =====================================================
+   LOW STOCK WARNING
+===================================================== */
+
+.lowWarning {
+  display: inline-flex;
+  align-items: center;
+
+  margin-left: 10px;
+
+  padding: 4px 10px;
+
+  border-radius: 999px;
+
+  background: #fef3c7;
+  color: #92400e;
+
+  border: 1px solid #fde68a;
+
+  font-size: .75rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+}
+
+/* =====================================================
+   EMPTY STATE
+===================================================== */
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 260px;
+
+  padding: 40px 20px;
+
+  text-align: center;
+
+  border: 2px dashed #d1d5db;
+  border-radius: 16px;
+
+  background: #fafafa;
+}
+
+.empty h3 {
+  margin: 18px 0 10px;
+
+  color: #111827;
+
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.empty p {
+  max-width: 420px;
+
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.empty::before {
+  content: "📦";
+
+  font-size: 4rem;
+
+  opacity: .9;
+}
+/* =====================================================
+   RESPONSIVE DESIGN
+===================================================== */
+
+@media (max-width: 1200px) {
+
+  .dashboard {
+    padding: 92px 24px 32px;
+  }
+
+  .cardContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .analytics {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .dashboard {
+    padding: 88px 18px 24px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .header h1 {
+    font-size: 1.75rem;
+  }
+
+  .welcome {
+    font-size: .95rem;
+  }
+
+  .refreshBtn {
+    width: 100%;
+  }
+
+  .cardContainer {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .card {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .cardValue {
+    font-size: 2rem;
+  }
+
+  .analytics {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .analyticsCard {
+    padding: 22px;
+  }
+
+  .statusRow {
+    gap: 10px;
+  }
+
+  .quick {
+    padding: 22px;
+  }
+
+  .quickButtons {
+    flex-direction: column;
+  }
+
+  .quick button {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .tableContainer {
+    padding: 18px;
+    overflow-x: auto;
+  }
+
+  .table {
+    min-width: 650px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .dashboard {
+    padding: 82px 14px 20px;
+  }
+
+  .header h1 {
+    font-size: 1.45rem;
+  }
+
+  .welcome {
+    font-size: .9rem;
+  }
+
+  .card {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .cardTitle {
+    font-size: .8rem;
+  }
+
+  .cardValue {
+    font-size: 1.8rem;
+  }
+
+  .analyticsCard {
+    padding: 20px;
+  }
+
+  .analyticsCard h3 {
+    font-size: 1rem;
+  }
+
+  .analyticsCard strong {
+    font-size: 1.5rem;
+  }
+
+  .quick h2,
+  .tableContainer h2 {
+    font-size: 1.2rem;
+  }
+
+  .empty {
+    min-height: 220px;
+    padding: 28px 18px;
+  }
+
+  .empty::before {
+    font-size: 3rem;
+  }
+
+}
+
+/* =====================================================
+   CUSTOM SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes fadeIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+@keyframes slideUp {
+
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+.card,
+.analyticsCard,
+.quick,
+.tableContainer {
+  animation: slideUp .45s ease both;
+}
+
+.card:nth-child(1) { animation-delay: .05s; }
+.card:nth-child(2) { animation-delay: .10s; }
+.card:nth-child(3) { animation-delay: .15s; }
+.card:nth-child(4) { animation-delay: .20s; }
+.card:nth-child(5) { animation-delay: .25s; }
+
+.analyticsCard:nth-child(1) {
+  animation-delay: .3s;
+}
+
+.analyticsCard:nth-child(2) {
+  animation-delay: .35s;
+}
+
+/* =====================================================
+   REDUCED MOTION SUPPORT
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+}
