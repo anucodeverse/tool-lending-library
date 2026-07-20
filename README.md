@@ -1,77 +1,131 @@
-# 🔧 Tool Lending Library
+# 🔧 Tool Lending Library - CRUD Application
 
-A full-stack **Tool Lending Library Management System** designed to help organizations efficiently manage, track, and maintain company equipment. The application replaces manual tracking methods with a secure, responsive, and user-friendly digital platform.
+## 📌 Overview
 
-The system provides complete **CRUD operations**, authentication, validation, accessibility support, and production-ready engineering practices.
+Tool Lending Library is a full-stack CRUD application that helps organizations manage tool inventory digitally.
 
----
-
-# 📌 Project Overview
-
-Organizations often manage tools and equipment using spreadsheets or manual records, which can lead to:
-
-- Lost equipment tracking
-- Incorrect inventory information
-- Difficulty monitoring availability
-- Manual data management overhead
-
-The Tool Lending Library solves these problems by providing a centralized platform where users can securely manage tool inventory.
+The application replaces manual tracking systems with a secure, responsive, and user-friendly interface for managing tools.
 
 ---
 
-# 🚀 Features
+## 🚀 Features
 
-## 🔐 Authentication & Authorization
+### Authentication
+- User Registration and Login
+- JWT Authentication
+- Protected Routes
+- Logout functionality
 
-- User registration and login
-- JWT-based authentication
-- Protected routes
-- Secure logout functionality
-- Persistent user sessions
+### Tool Management
+- Create new tools
+- View all tools
+- Update tool details
+- Delete tools
+- Search and filter tools
+- Inventory statistics dashboard
 
----
+### Validation & Security
+- Form validation
+- Error handling
+- XSS protection using DOMPurify
+- Secure user authentication
 
-## 🛠️ Tool Management (CRUD)
-
-Complete Feature-Complete CRUD functionality:
-
-### Create
-- Add new tools
-- Validate required fields
-- Sanitize user inputs before storing
-
-### Read
-- View complete tool inventory
-- Display tool details clearly
-
-### Update
-- Edit existing tool information
-- Update inventory details dynamically
-
-### Delete
-- Remove tools safely
-- Confirmation before deletion
+### User Experience
+- Responsive design
+- Loading indicators
+- Empty state handling
+- Toast notifications
+- Accessibility support (ARIA labels + keyboard navigation)
 
 ---
 
-# 🔎 Search & Filtering
+## 🛠️ Tech Stack
 
-Users can quickly find tools using:
+### Frontend
+- React.js
+- Vite
+- React Router
+- Axios
+- CSS Modules
+- Lucide React Icons
+- DOMPurify
 
-- Tool name search
-- Availability filtering
-- Borrowed tools filtering
-- Low stock filtering
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT Authentication
+- bcrypt
 
 ---
 
-# 📊 Dashboard & Analytics
+## 📂 Project Structure
 
-The dashboard provides:
 
-- Total number of tools
-- Available tools count
-- Borrowed tools count
-- Low stock monitoring
+tool-lending-library
 
-Includes simulated telemetry logging:
+├── client
+│ ├── components
+│ ├── pages
+│ ├── services
+│ └── context
+│
+└── server
+├── models
+├── routes
+├── controllers
+└── middleware
+
+
+---
+
+## ⚙️ Installation
+
+### Clone Repository
+
+```bash
+git clone <repository-url>
+Frontend Setup
+cd client
+npm install
+npm run dev
+Backend Setup
+cd server
+npm install
+npm start
+🧪 Testing
+
+Run lint check:
+
+npm run lint
+
+Build project:
+
+npm run build
+
+Verified:
+
+✅ CRUD operations
+✅ Authentication flow
+✅ Form validation
+✅ Responsive design
+✅ Loading and empty states
+✅ Accessibility improvements
+
+📊 Analytics Simulation
+
+The application includes telemetry simulation:
+
+[Analytics] Tool created
+[Analytics] Tool updated
+[Analytics] Tool deleted
+🎯 Requirements Covered
+
+✔ Feature Complete CRUD
+✔ Error handling
+✔ Input validation
+✔ Secure data handling
+✔ Responsive UI
+✔ Accessibility support
+✔ Production-ready structure
